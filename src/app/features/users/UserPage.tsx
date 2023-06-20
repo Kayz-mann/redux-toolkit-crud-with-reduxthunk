@@ -1,0 +1,29 @@
+import { useSelector } from 'react-redux';
+import { Link, useParams } from 'react-router-dom'
+import { User, selectUserById } from './userSlice';
+import { selectAllPosts } from '../posts/postSlice';
+
+const UserPage = () => {
+    const { userId } = useParams();
+    const user = useSelector((state: { users: User[] }) => selectUserById(state, Number(userId))) as User;
+
+    const postsForUser = useSelector(state => {
+        const allPosts = selectAllPosts(state)
+        return allPosts.filter(post => post.userId === Number(userId))
+    })
+
+    const postTitles = postsForUser.map(post => (
+        <li key={post.id}>
+            <Link to={`/post/${post.id}`}>{post.title}</Link>
+        </li>
+    ))
+
+    return (
+        <section>
+            <h2>{user?.name}</h2>
+            <ol>{postTitles}</ol>
+        </section>
+    )
+}
+
+export default UserPage
