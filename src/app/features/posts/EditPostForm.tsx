@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { RootState, deletePost, selectPostById, updatePost } from './postSlice';
 import { selectAllUsers } from '../users/userSlice';
 import { SetStateAction, useState } from 'react';
+import styles from './index.module.css'
 
 const EditPostForm = () => {
     const { postId } = useParams();
@@ -79,9 +80,9 @@ const EditPostForm = () => {
 
 
     return (
-        <section>
+        <section className={styles.container}>
             <h2>Edit Post</h2>
-            <form>
+            <form className={styles.formContent}>
                 <label htmlFor='postTitle'>Post Title:</label>
                 <input
                     type="text"

@@ -2,7 +2,7 @@ import { createSlice, PayloadAction, createAsyncThunk, createEntityAdapter } fro
 import axios from "axios";
 import { sub } from "date-fns";
 
-const POSTS_URL = import.meta.env.API_URL
+const POSTS_URL = 'https://jsonplaceholder.typicode.com/posts'
 
 
 export interface Post {

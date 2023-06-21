@@ -42,6 +42,7 @@ const AddPostForm = () => {
                 setContent('')
                 setUserId('')
                 navigate('/')
+                console.log('sent')
             } catch (err: any) {
                 console.error('Failed to save the post', err)
             } finally {

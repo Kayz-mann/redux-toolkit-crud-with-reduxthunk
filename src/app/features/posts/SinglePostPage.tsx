@@ -3,7 +3,7 @@ import { RootState, selectPostById } from './postSlice'
 import PostAuthor from './PostAuthor';
 import TimeAgo from './TimeAgo';
 import ReactionButton from './ReactionButton';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 
 const SinglePostPage = ({ }) => {
@@ -30,7 +30,7 @@ const SinglePostPage = ({ }) => {
                 <TimeAgo timestamp={post.date} />
             </p>
             <ReactionButton post={post} />
-            {/* <Link to={`edit/${post.id}`}>Edit Post</Link> */}
+            <Link to={`/post/edit/${post.id}`}>Edit Post</Link>
         </article>
     )
 }
